@@ -1,6 +1,6 @@
 import { type FC } from "react"
-import {Routes, Route} from "react-router-dom";
-import {LoginPage, HomePage, RegisterPage, ProductsPage, ProductPage} from "./pages";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { LoginPage, HomePage, RegisterPage, ProductsPage, ProductPage } from "./pages";
 import { pagesConfig } from "./configs/pages.config.ts";
 import "./App.scss"
 
@@ -13,6 +13,7 @@ const App: FC = () => {
         <Route path={pagesConfig.register} element={<RegisterPage/>} />
         <Route path={pagesConfig.products} element={<ProductsPage/>} />
         <Route path={pagesConfig.product} element={<ProductPage/>} />
+        <Route path="*" element={<Navigate to={pagesConfig.register} />} />
       </Routes>
     </>
   )
